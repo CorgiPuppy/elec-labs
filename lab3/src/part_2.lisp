@@ -40,36 +40,21 @@
 					:element-type 'float))
 
 ; Functions:
-(defun fill-Cp (capacity begin-index end-index value-name step-value)
-	"Fill a capacity array."
+(defun fill-array (physical-value array-name-1 begin-index end-index array-name-2 array-name-3 value-name step-value)
+	"Fill a physical array."
 	(loop for i from begin-index to end-index and value from value-name by step-value do
-		(setf (aref capacity i) value)))
+		(cond
+			((string-equal physical-value "C_p") (setf (aref array-name-1 i) value))
+			((string-equal physical-value (or "Y" "G" "B")) (setf (aref array-name-1 i) (/ (aref array-name-2 i) U)))
+			((string-equal physical-value "S") (setf (aref array-name-1 i) (* (aref array-name-2 i) U)))
+			((string-equal physical-value "cos_phi") (setf (aref array-name-1 i) (/ (aref array-name-2 i) (aref array-name-3 i)))))))
 
-(defun fill-Conductivity (conductivity begin-index end-index current)
-	"Fill a conductivity array."
-	(loop for i from begin-index to end-index do
-		(setf (aref conductivity i) (/ (aref current i) U))))
-
-(defun fill-Power (power begin-index end-index current)
-	"Fill a power array."
-	(loop for i from begin-index to end-index do
-		(setf (aref power i) (* (aref current i) U))))
-		
-(defun fill-CosPhi (cosPhi begin-index end-index)
-	"Fill a cosPhi array."
-	(loop for i from begin-index to end-index do
-		(setf (aref cosPhi i) (/ (aref P i) (aref S i)))))
-	
 ; Main:
-(fill-Cp C_p 0 (- (/ LENGTH 2) 1) (- C 40) 10)
-(fill-Cp C_P (/ LENGTH 2) (- LENGTH 1) (+ C 10) 10)
-
-(fill-Conductivity Y 0 (- LENGTH 1) I_total)
-(fill-Conductivity G 0 (- LENGTH 1) I_R)
-(fill-Conductivity B_L 0 (- LENGTH 1) I_L)
-(fill-Conductivity B_C 0 (- LENGTH 1) I_C)
-
-(fill-Power S 0 (- LENGTH 1) I_total)
-
-(fill-CosPhi cos_phi 0 (- LENGTH 1))
-
+(fill-array "C_p" C_p 0 (- (/ LENGTH 2) 1) '(0) '(0) (- C 40) 10)
+(fill-array "C_p" C_p (/ LENGTH 2) (- LENGTH 1) '(0) '(0) (+ C 10) 10)
+(fill-array "Y" Y 0 (- LENGTH 1) I_total '(0) 0 0)
+(fill-array "G" G 0 (- LENGTH 1) I_R '(0) 0 0)
+(fill-array "B_L" B_L 0 (- LENGTH 1) I_L '(0) 0 0)
+(fill-array "B_C" B_C 0 (- LENGTH 1) I_C '(0) 0 0)
+(fill-array "S" S 0 (- LENGTH 1) I_total '(0) 0 0)
+(fill-array "cos_phi" cos_phi 0 (- LENGTH 1) P S 0 0)
