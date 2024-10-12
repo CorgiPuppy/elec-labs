@@ -4,3 +4,4 @@
 (defconstant L 58)
 (defconstant LENGTH-1 9)
 (defconstant LENGTH-2 10)
+(defconstant FOLDER "../plots/files/")
