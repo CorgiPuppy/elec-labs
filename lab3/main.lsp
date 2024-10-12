@@ -24,17 +24,19 @@
 (setf I_C (make-array LENGTH ;; Current travelling through the capacitor.
 					:element-type 'float
 					:initial-contents '(9.09 9.79 10.49 11.19 11.88 12.58 13.28 13.97 14.67 15.37)))
-(setf Y (make-array LENGTH
+(setf Y (make-array LENGTH ;; Full circuit conductivity.
 					:element-type 'float))
-(setf G (make-array LENGTH
+(setf G (make-array LENGTH ;; Active circuit conductivity.
 					:element-type 'float))
-(setf B_L (make-array LENGTH
+(setf B_L (make-array LENGTH ;; Reactive conductivity of the inductor.
 					:element-type 'float))
-(setf B_C (make-array LENGTH
+(setf B_C (make-array LENGTH ;; Reactive conductivity of the capacitor.
 					:element-type 'float))
-(setf S (make-array LENGTH
+(setf B (make-array LENGTH ;; Rective circuit conductivity.
 					:element-type 'float))
-(setf cos_phi (make-array LENGTH
+(setf S (make-array LENGTH ;; Total power.
+					:element-type 'float))
+(setf cos_phi (make-array LENGTH ;; The cosine of the phi angle.
 					:element-type 'float))
 
 ; Functions:
