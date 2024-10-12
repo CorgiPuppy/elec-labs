@@ -13,6 +13,7 @@
 			 (setf (aref array-name-1 i) (- (aref array-name-2 i) (aref array-name-3 i))))
 			((string-equal physical-value "phi") (setf (aref array-name-1 i) (atan (/ (aref array-name-2 i) (aref array-name-3 i)))))
 			((string-equal physical-value "S") (setf (aref array-name-1 i) (* (aref array-name-2 i) U)))
+			((string-equal physical-value "Q") (setf (aref array-name-1 i) (* (sqrt (aref array-name-2 i)) (aref array-name-3 i))))
 			((or (string-equal physical-value "Y")
 				 (string-equal physical-value "G")
 				 (string-equal physical-value "B_L")
