@@ -42,5 +42,23 @@
 (fill-array "G" G 0 (- LENGTH-2 1) I_R '(0) 0 0)
 (fill-array "B_L" B_L 0 (- LENGTH-2 1) I_L '(0) 0 0)
 (fill-array "B_C" B_C 0 (- LENGTH-2 1) I_C '(0) 0 0)
+(fill-array "B" B 0 (- LENGTH-2 1) B_L B_C 0 0)
 (fill-array "S" S 0 (- LENGTH-2 1) I_total '(0) 0 0)
 (fill-array "cos_phi" cos_phi 0 (- LENGTH-2 1) P S 0 0)
+
+(format t "C_p ~C P ~C U ~C I ~C I_R ~C I_L ~C I_C ~C Y ~C G ~C B ~C cos_phi" #\tab #\tab #\tab #\tab #\tab #\tab #\tab #\tab #\tab #\tab)
+(terpri)
+(loop for i from 0 to (- LENGTH-1 1) do
+	(format t "~f ~C" (aref C_p i) #\tab)
+	(format t "~f ~C" (aref P i) #\tab)
+	(format t "~f ~C" U #\tab)
+	(format t "~,2f ~C" (aref I_total i) #\tab)
+	(format t "~,2f ~C" (aref I_R i) #\tab)
+	(format t "~,2f ~C" (aref I_L i) #\tab)
+	(format t "~,2f ~C" (aref I_C i) #\tab)
+	(format t "~,4f ~C" (aref Y i) #\tab)
+	(format t "~,4f ~C" (aref G i) #\tab)
+	(format t "~,4f ~C" (aref B i) #\tab)
+	(format t "~,3f ~C" (aref cos_phi i) #\tab)
+	(terpri))
+
