@@ -1,9 +1,5 @@
-; Constants:
-(defconstant E 220)
-(defconstant R 18)
-(defconstant C 170)
-(defconstant L 58)
-(defconstant LENGTH 10)
+(load "Constants.lisp")
+(load "Functions.lisp")
 
 ; Measurements:
 (setf C_p (make-array LENGTH ;; Capacity.
@@ -38,16 +34,6 @@
 					:element-type 'float))
 (setf cos_phi (make-array LENGTH ;; The cosine of the phi angle.
 					:element-type 'float))
-
-; Functions:
-(defun fill-array (physical-value array-name-1 begin-index end-index array-name-2 array-name-3 value-name step-value)
-	"Fill a physical array."
-	(loop for i from begin-index to end-index and value from value-name by step-value do
-		(cond
-			((string-equal physical-value "C_p") (setf (aref array-name-1 i) value))
-			((string-equal physical-value (or "Y" "G" "B")) (setf (aref array-name-1 i) (/ (aref array-name-2 i) U)))
-			((string-equal physical-value "S") (setf (aref array-name-1 i) (* (aref array-name-2 i) U)))
-			((string-equal physical-value "cos_phi") (setf (aref array-name-1 i) (/ (aref array-name-2 i) (aref array-name-3 i)))))))
 
 ; Main:
 (fill-array "C_p" C_p 0 (- (/ LENGTH 2) 1) '(0) '(0) (- C 40) 10)
