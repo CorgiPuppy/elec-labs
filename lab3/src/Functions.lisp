@@ -21,10 +21,12 @@
 			 (setf (aref array-name-1 i) (/ (aref array-name-2 i) U)))
 			((string-equal physical-value "cos_phi") (setf (aref array-name-1 i) (/ (aref array-name-2 i) (aref array-name-3 i)))))))
 
-(defun write-to-file (file-name array-name-1 array-name-2 begin-index end-index)
+(defun write-to-file (file-name physical-value array-name-1 array-name-2 begin-index end-index)
 	(with-open-file (str file-name
 					 :direction :output
 					 :if-exists :supersede
 					 :if-does-not-exist :create)
 		(loop for i from begin-index to end-index do
-			(format str "~f ~,3f ~%" (aref array-name-1 i) (aref array-name-2 i)))))
+			(if (string-equal physical-value "U")
+				(format str "~d ~d ~%" (aref array-name-1 i) U)
+				(format str "~d ~,4f ~%" (aref array-name-1 i) (aref array-name-2 i))))))

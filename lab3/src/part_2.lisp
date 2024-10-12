@@ -46,10 +46,10 @@
 (fill-array "S" S 0 (- LENGTH-2 1) I_total '(0) 0 0)
 (fill-array "cos_phi" cos_phi 0 (- LENGTH-2 1) P S 0 0)
 
-(write-to-file (concatenate 'string FOLDER "I_C.txt") C_p I_C 0 (- LENGTH-2 1))
-(write-to-file (concatenate 'string FOLDER "I_C_C.txt") C_p I_C 0 (- LENGTH-2 1))
-(write-to-file (concatenate 'string FOLDER "Y_C.txt") C_p Y 0 (- LENGTH-2 1))
-(write-to-file (concatenate 'string FOLDER "cosPhi2_C.txt") C_p cos_phi 0 (- LENGTH-2 1))
+(write-to-file (concatenate 'string FOLDER "I_C.txt") "I" C_p I_total 0 (- LENGTH-2 1))
+(write-to-file (concatenate 'string FOLDER "I_C_C.txt") "I_C" C_p I_C 0 (- LENGTH-2 1))
+(write-to-file (concatenate 'string FOLDER "Y_C.txt") "Y" C_p Y 0 (- LENGTH-2 1))
+(write-to-file (concatenate 'string FOLDER "cosPhi2_C.txt") "cos_phi" C_p cos_phi 0 (- LENGTH-2 1))
 
 (format t "C_p ~C P ~C U ~C I ~C I_R ~C I_L ~C I_C ~C Y ~C G ~C B ~C cos_phi" #\tab #\tab #\tab #\tab #\tab #\tab #\tab #\tab #\tab #\tab)
 (terpri)
