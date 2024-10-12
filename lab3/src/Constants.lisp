@@ -1,0 +1,5 @@
+(defconstant E 220)
+(defconstant R 18)
+(defconstant C 170)
+(defconstant L 58)
+(defconstant LENGTH 10)
