@@ -11,30 +11,30 @@
 					:element-type 'float
 					:initial-contents '(11.65 11.93 12.11 12.19 12.20 12.20 12.15 12.08 12.00)))
 (setq U E) ;; Voltage is set to EMF.
-(setf U_R (make-array LENGTH-1 ;; Current travelling through the resistor.
+(setf U_R (make-array LENGTH-1 ;; Voltage travelling through the resistor.
 					:element-type 'float
 					:initial-contents '(209.6 214.7 217.9 219.5 220.0 219.6 218.7 217.5 215.9))) 
-(setf U_L (make-array LENGTH-1 ;; Current travelling through the inductor coil.
+(setf U_L (make-array LENGTH-1 ;; Voltage travelling through the inductor coil.
 					:element-type 'float
 					:initial-contents '(215.1 220.3 223.5 225.1 225.6 225.3 224.3 223.0 221.5))) 
-(setf U_C (make-array LENGTH-1 ;; Current travelling through the capacitor.
+(setf U_C (make-array LENGTH-1 ;; Voltage travelling through the capacitor.
 					:element-type 'float
 					:initial-contents '(281.6 267.8 253.6 239.5 225.9 213.0 201.0 189.8 179.5)))
-(setf R_calc (make-array LENGTH-1 ;; Full circuit conductivity.
+(setf R_calc (make-array LENGTH-1 ;; Full circuit resistance.
 					:element-type 'float))
-(setf Z (make-array LENGTH-1 ;; Reactive conductivity of the capacitor.
+(setf Z (make-array LENGTH-1 ;; Total resistance.
 					:element-type 'float))
-(setf X_L (make-array LENGTH-1 ;; Rective circuit conductivity.
+(setf X_L (make-array LENGTH-1 ;; Reactive circuit resistance of the inductor.
 					:element-type 'float))
-(setf X_C (make-array LENGTH-1 ;; Active circuit conductivity.
+(setf X_C (make-array LENGTH-1 ;; Reactive circuit resistance of the capacitor.
 					:element-type 'float))
-(setf X (make-array LENGTH-1 ;; Total power.
+(setf X (make-array LENGTH-1 ;; Total reactive resistance.
 					:element-type 'float))
-(setf phi (make-array LENGTH-1 ;; Reactive conductivity of the inductor.
+(setf phi (make-array LENGTH-1 ;; Phi angle.
 					:element-type 'float))
-(setf S (make-array LENGTH-1 ;;
+(setf S (make-array LENGTH-1 ;; Power, B*A.
 					:element-type 'float))
-(setf Q (make-array LENGTH-1 ;;
+(setf Q (make-array LENGTH-1 ;; Power, вар.
 					:element-type 'float))
 (setf cos_phi (make-array LENGTH-1 ;; The cosine of the phi angle.
 					:element-type 'float))

@@ -28,9 +28,9 @@
 					:element-type 'float))
 (setf B_C (make-array LENGTH-2 ;; Reactive conductivity of the capacitor.
 					:element-type 'float))
-(setf B (make-array LENGTH-2 ;; Rective circuit conductivity.
+(setf B (make-array LENGTH-2 ;; Reactive circuit conductivity.
 					:element-type 'float))
-(setf S (make-array LENGTH-2 ;; Total power.
+(setf S (make-array LENGTH-2 ;; Total power, B*A.
 					:element-type 'float))
 (setf cos_phi (make-array LENGTH-2 ;; The cosine of the phi angle.
 					:element-type 'float))
