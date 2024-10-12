@@ -3,9 +3,9 @@
 	(loop for i from begin-index to end-index and value from value-name by step-value do
 		(cond
 			((string-equal physical-value "C_p") (setf (aref array-name-1 i) value))
-			((or (string-equal physical-value "R") 
-				 (string-equal physical-value "X_L")
-				 (string-equal physical-value "X_C")) 
+			((or (string-equal physical-value "R")
+				(string-equal physical-value "X_L")
+				(string-equal physical-value "X_C")) 
 			 (setf (aref array-name-1 i) (/ (aref array-name-2 i) (aref array-name-3 i))))
 			((string-equal physical-value "Z") (setf (aref array-name-1 i) (/ U (aref array-name-2 i))))
 			((or (string-equal physical-value "X")
