@@ -40,8 +40,8 @@
 					:element-type 'float))
 
 ; Main:
-(fill-array "C_p" C_p 0 (- (round (/ LENGTH-1 2)) 1) '(0) '(0) (- C 40) 10)
-(fill-array "C_p" C_p (round (/ LENGTH-1 2)) (- LENGTH-1 1) '(0) '(0) (+ C 10) 10)
+(fill-array "C_p" C_p 0 (floor (/ LENGTH-1 2)) '(0) '(0) (- C 40) 10)
+(fill-array "C_p" C_p (ceiling (/ LENGTH-1 2)) (- LENGTH-1 1) '(0) '(0) (+ C 10) 10)
 (fill-array "R" R_calc 0 (- LENGTH-1 1) U_R I_total 0 0)
 (fill-array "Z" Z 0 (- LENGTH-1 1) I_total '(0) 0 0)
 (fill-array "X_L" X_L 0 (- LENGTH-1 1) U_C I_total 0 0)

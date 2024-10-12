@@ -5,8 +5,7 @@ set xlabel "C, мкФ"
 set ylabel "S, В*А"
 set grid
 
-set xrange [120:230]
-#set yrange [5:50]
+set xrange [120:220]
 
 set output "../pictures/S_C.png"
 plot "../files/S_C.txt" title "S(C)" with linespoints 

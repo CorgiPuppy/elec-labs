@@ -53,7 +53,7 @@
 
 (format t "C_p ~C P ~C U ~C I ~C I_R ~C I_L ~C I_C ~C Y ~C G ~C B ~C cos_phi" #\tab #\tab #\tab #\tab #\tab #\tab #\tab #\tab #\tab #\tab)
 (terpri)
-(loop for i from 0 to (- LENGTH-1 1) do
+(loop for i from 0 to (- LENGTH-2 1) do
 	(format t "~f ~C" (aref C_p i) #\tab)
 	(format t "~f ~C" (aref P i) #\tab)
 	(format t "~f ~C" U #\tab)

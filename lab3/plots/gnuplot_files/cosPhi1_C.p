@@ -5,8 +5,7 @@ set xlabel "C, мкФ"
 set ylabel "cos{/Symbol f}"
 set grid
 
-set xrange [120:230]
-#set yrange [5:50]
+set xrange [120:220]
 
 set output "../pictures/cosPhi1_C.png"
 plot "../files/cosPhi1_C.txt" title "cos{/Symbol f}(C)" with linespoints 
