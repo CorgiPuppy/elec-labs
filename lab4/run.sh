@@ -2,11 +2,20 @@
 
 file="$@"
 
-if [ -f "$file".asm ]
+if [ -f "$file".f90 ]
 then
-	nasm -f elf64 "$file".asm -o "$file".o
-	ld "$file".o -o "$file"
-	./"$file"
+	if [ "$OSTYPE" == "linux-gnu"* ]
+	then
+		gfortran "$file".f90 -o "$file"
+		./"$file"
+	elif [ $(ps -ef | grep -c com.termux) -gt 0 ]
+	then
+		lfortran "$file".f90 -o "$file"
+		rm "$file".tmp.o
+		./"$file"
+	else
+		"There is an another OS."
+	fi
 else
-	echo "$file doesn't exist."
+	echo "$file.f90 doesn't exist."
 fi
