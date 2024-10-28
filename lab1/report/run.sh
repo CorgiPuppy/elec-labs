@@ -4,6 +4,7 @@ file="$@"
 
 if [ -f "$file".tex ]
 then
+	pdflatex "$file".tex	
 	pdflatex "$file".tex
 	latexmk -c "$file".tex
 	if [ -f "$file".pdf ]
