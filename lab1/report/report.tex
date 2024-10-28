@@ -7,6 +7,11 @@
 \usepackage{array}
 \newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
 
+\usepackage{graphicx}
+\graphicspath{ {../plots/pictures/} }
+\usepackage{subcaption}
+\usepackage{float}
+
 \begin{document}
 	\begin{titlepage}
 		\begin{center}
@@ -14,7 +19,7 @@
 			\Huge \textbf{ЭЛЕКТРОТЕХНИКА И ЭЛЕКТРОНИКА}
 
 			\vspace{1cm}
-			\Huge Рабочая тетрадь
+			\Huge \textbf{Рабочая тетрадь}
 			
 			\vspace{5cm}
 			\begin{flushright}
@@ -44,26 +49,68 @@
 
 		\textbf{Цель работы}
 	\end{center}
-	Исследование цепи постоянного тока.
-	\newline
+	\par Исследование цепи постоянного тока.
 
-	\begin{tabular}{||M{4cm} | M{1.5cm} | M{1.5cm} | M{1.5cm} | M{1.5cm} | M{1.5cm} | M{1.5cm}||}
-		\hline 
-		Параметры цепи & \( R_{load} = 0 \) & \( R_{load} = R_{line} = 100 Ом \) & \( R_{load} = R + 100 Ом \) & \( R_{load} = R + 300 Ом \) & \( R_{load} = R + 500 Ом \) & \( R_{load} = R = 700 Ом \) \\
+	\begin{center}
+		\textbf{Задачи}
+	\end{center}
+	\begin{enumerate}
+		\item Рассчитать цепь при заданных параметрах.
+		\item Исследовать цепь при изменении сопротивления нагрузки.
+		\item Сравнить результаты расчета и исследования цепи.
+		\item Записать выводы по результатам.
+	\end{enumerate}
 
-		\hline
-		Ток, I, А & 2 & 1 & 0.5405 & 0.3509 & 0.2597 & 0.2062 \\
+	\begin{center}
+		\textbf{Ход работы}	
+	\end{center}	
+	\begin{enumerate}
+		\item Рассчитать цепь.	
+		\item Заполнить таблицу.	
+			\newline
+			\begin{tabular}{||M{4cm} | M{1.5cm} | M{1.5cm} | M{1.5cm} | M{1.5cm} | M{1.5cm} | M{1.5cm}||}
+				\hline 
+				Параметры цепи & \( R_{load} = 0 \) & \( R_{load} = R_{line} = 100 Ом \) & \( R_{load} = R + 100 Ом \) & \( R_{load} = R + 300 Ом \) & \( R_{load} = R + 500 Ом \) & \( R_{load} = R = 700 Ом \) \\
 
-		\hline 
-		Мощность источника, \newline \( P_{source} = E*I, \) Вт & 400 & 200 & 108.1 & 70.18 & 51.94 & 41.24 \\
+				\hline
+				Ток, I, А & 2 & 1 & 0.5405 & 0.3509 & 0.2597 & 0.2062 \\
 
-		\hline
-		Мощность нагрузки, \newline \( P_{load} = I^2*R, \) Вт & 0 & 100 & 78.88 & 57.87 & 45.19 & 36.99 \\
+				\hline 
+				Мощность источника, \newline \( P_{source} = E*I, \) Вт & 400 & 200 & 108.1 & 70.18 & 51.94 & 41.24 \\
 
-		\hline
-		К.П.Д. цепи, \newline \( \eta = \frac{P_{load}}{P_{source}}*100\% \) & 0 & 50 & 73 & 82 & 87 & 90 \\
-		\hline
-	\end{tabular}
+				\hline
+				Мощность нагрузки, \newline \( P_{load} = I^2*R, \) Вт & 0 & 100 & 78.88 & 57.87 & 45.19 & 36.99 \\
+
+				\hline
+				К.П.Д. цепи, \newline \( \eta = \frac{P_{load}}{P_{source}}*100\% \) & 0 & 50 & 73 & 82 & 87 & 90 \\
+				\hline
+			\end{tabular}
+		\item Построить зависимости от \(R_{load}\) (Рис. \ref{plots}).
+			\newline
+			\begin{figure}[H]
+				\begin{subfigure}{0.5\linewidth}
+					\includegraphics[width=\linewidth]{I_R.png}
+				\end{subfigure}
+				\hfill
+				\begin{subfigure}{0.5\linewidth}
+					\includegraphics[width=\linewidth]{P_ist_R.png}
+				\end{subfigure}
+				\medskip
+				\begin{subfigure}{0.5\linewidth}
+					\includegraphics[width=\linewidth]{P_n_R.png}
+				\end{subfigure}
+				\begin{subfigure}{0.5\linewidth}
+					\includegraphics[width=\linewidth]{n_R.png}
+				\end{subfigure}
+
+				\caption{Графики.}
+				\label{plots}
+			\end{figure}
+	\end{enumerate}
+
+	\begin{center}
+		\textbf{Выводы.}
+	\end{center}
 \end{document}
 
 
