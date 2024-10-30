@@ -7,5 +7,5 @@ set grid
 
 set xrange [120:220]
 
-set output "../pictures/U__U_R__U_L__U_C___C.png"
-plot "../files/U_C.txt" title "U(C)" with linespoints, "../files/U_R_C.txt" title "U_{R}(C)" with linespoints, "../files/U_L_C.txt" title "U_{L}(C)" with linespoints, "../files/U_C_C.txt" title "U_{C}(C)" with linespoints  
+set output "plots/pictures/U__U_R__U_L__U_C___C.png"
+plot "plots/files/U_C.txt" title "U(C)" with linespoints, "plots/files/U_R_C.txt" title "U_{R}(C)" with linespoints, "plots/files/U_L_C.txt" title "U_{L}(C)" with linespoints, "plots/files/U_C_C.txt" title "U_{C}(C)" with linespoints  

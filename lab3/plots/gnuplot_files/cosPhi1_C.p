@@ -7,5 +7,5 @@ set grid
 
 set xrange [120:220]
 
-set output "../pictures/cosPhi1_C.png"
-plot "../files/cosPhi1_C.txt" title "cos{/Symbol f}(C)" with linespoints 
+set output "plots/pictures/cosPhi1_C.png"
+plot "plots/files/cosPhi1_C.txt" title "cos{/Symbol f}(C)" with linespoints 

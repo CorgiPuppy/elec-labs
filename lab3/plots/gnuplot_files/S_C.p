@@ -7,5 +7,5 @@ set grid
 
 set xrange [120:220]
 
-set output "../pictures/S_C.png"
-plot "../files/S_C.txt" title "S(C)" with linespoints 
+set output "plots/pictures/S_C.png"
+plot "plots/files/S_C.txt" title "S(C)" with linespoints 
