@@ -8,5 +8,5 @@ set grid
 set xrange [0:1000]
 set yrange [0:110]
 
-set output "../pictures/P_n_R.png"
-plot "../files/P_n_R.txt" title "P_{н}(R_{н})" with linespoints
+set output "plots/pictures/P_n_R.png"
+plot "plots/files/P_n_R.txt" title "P_{н}(R_{н})" with linespoints
