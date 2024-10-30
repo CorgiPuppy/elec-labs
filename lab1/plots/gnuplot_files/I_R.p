@@ -1,6 +1,6 @@
 set terminal pngcairo size 700,700
 
-set title "Сила тока I от сопротивления нагрузки R_{н}"
+set title "Кривая силы тока I от сопротивления нагрузки R_{н}"
 set xlabel "R_{н}, Ом"
 set ylabel "I, A"
 set grid
