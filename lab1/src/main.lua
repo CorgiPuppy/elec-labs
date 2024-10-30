@@ -25,7 +25,7 @@ do
 	print(R_n[i], I[i], P_ist[i], P_n[i], n[i])
 end
 
-folder = "../plots/files/"
+folder = "plots/files/"
 write_to_file(folder.."I_R.txt", R_n, I)
 write_to_file(folder.."P_ist_R.txt", R_n, P_ist)
 write_to_file(folder.."P_n_R.txt", R_n, P_n)
