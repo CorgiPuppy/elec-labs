@@ -21,9 +21,6 @@ $(EXE): $(SRC_DIR)/*.f90 | $(BIN_DIR)
 	@if [ $(strip $(OSTYPE)) = Linux ]; then\
 		$(GF) $^ -o $@;\
 	fi
-	@if [ $(strip $(OSTYPE)) = com.termux ]; then\
-		$(LF) $^ -o $@;\
-	fi
 
 $(BIN_DIR):
 	@echo "Create bin dir.."
