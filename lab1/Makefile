@@ -11,9 +11,18 @@ GNPLT := gnuplot
 PDFLTX := pdflatex
 
 OUTPUT := --output-directory
+
 .PHONY: all
 
 all: clean run-src compile-gnp run-report clean-aux
+
+run-src: $(SRC)
+	@echo "Running main.."
+	@$(L) $<
+
+compile-gnp: $(GNP)
+	@echo "Compile gnuplot files.."
+	@$(GNPLT) $<
 
 run-report: $(RPRT)
 	@echo "Running report.."
@@ -23,14 +32,6 @@ $(RPRT): $(REPORT_DIR)/*.tex
 	@echo "Building pdf.."
 	$(PDFLTX) $(OUTPUT)=$(REPORT_DIR) $<
 	$(PDFLTX) $(OUTPUT)=$(REPORT_DIR) $<
-
-run-src: $(SRC)
-	@echo "Running main.."
-	@$(L) $<
-
-compile-gnp: $(GNP)
-	@echo "Compile gnuplot files.."
-	@$(GNPLT) $<
 
 clean-aux:
 	@echo "Cleaning up auxiliary files.."
