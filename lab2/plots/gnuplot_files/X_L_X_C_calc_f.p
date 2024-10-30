@@ -8,5 +8,5 @@ set grid
 set xrange [20:130]
 set yrange [5:50]
 
-set output "../pictures/X_L_X_C_calc_f.png"
-plot "../files/X_L_calc_f.txt" title "X_{L}(f)" with linespoints, "../files/X_C_calc_f.txt" title "X_{C}(f)" with linespoints 
+set output "plots/pictures/X_L_X_C_calc_f.png"
+plot "plots/files/X_L_calc_f.txt" title "X_{L}(f)" with linespoints, "plots/files/X_C_calc_f.txt" title "X_{C}(f)" with linespoints 
