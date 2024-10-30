@@ -8,7 +8,7 @@
 \newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
 
 \usepackage{graphicx}
-\graphicspath{ {../plots/pictures/} }
+\graphicspath{ {../plots/pictures/}{../circuit/}}
 \usepackage{subcaption}
 \usepackage{float}
 
@@ -65,7 +65,13 @@
 		\textbf{Ход работы}	
 	\end{center}	
 	\begin{enumerate}
-		\item Рассчитать цепь.	
+		\item Рассчитать цепь (Рис. \ref{circuit}).	
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=1\textwidth]{circuit.png}
+				\caption{Рассчетная цепь.}
+				\label{circuit}
+			\end{figure}
 		\item Заполнить таблицу.	
 			\newline
 			\begin{tabular}{||M{4cm} | M{1.5cm} | M{1.5cm} | M{1.5cm} | M{1.5cm} | M{1.5cm} | M{1.5cm}||}
