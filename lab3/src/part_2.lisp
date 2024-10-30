@@ -1,5 +1,5 @@
-(load "Constants.lisp")
-(load "Functions.lisp")
+(load "include/Constants.lisp")
+(load "include/Functions.lisp")
 
 ; Measurements:
 (setf C_p (make-array LENGTH-2 ;; Capacity.
