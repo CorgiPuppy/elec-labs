@@ -37,7 +37,7 @@ declare -a X_C_calc
 declare -a U_C=(68.3 67.0 65.5 63.7 61.4 59.9 57.8 55.8 53.8 51.8)
 declare -a I_C=(2.22 2.90 3.54 4.14 4.61 5.18 5.63 6.04 6.40 6.73)
 declare -a X_C_exp
-declare FOLDER=../plots/files
+declare FOLDER=plots/files
 declare FILE_1_1=$FOLDER/X_L_calc_f.txt
 declare FILE_1_2=$FOLDER/X_C_calc_f.txt
 declare FILE_2_1=$FOLDER/X_L_exp_f.txt
