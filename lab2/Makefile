@@ -9,6 +9,7 @@ GNP := $(wildcard $(GNUPLOT_DIR)/*.p)
 B := bash
 GNPLT := gnuplot
 TPST := typst compile
+ZTHR := zathura
 
 .PHONY: all clean
 
@@ -24,11 +25,11 @@ compile-gnp: $(GNP)
 
 run-report: $(RPRT)
 	@echo "Running report.."
-	@zathura $<	
+	@$(ZTHR) $<	
 
 $(RPRT): $(REPORT_DIR)/*.typ
 	@echo "Building pdf.."
-	$(TPST) $<
+	@$(TPST) $<
 
 clean: 
 	@echo "Cleaning up.."
