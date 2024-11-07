@@ -8,7 +8,7 @@ GNP := $(wildcard $(GNUPLOT_DIR)/*.p)
 
 B := bash
 GNPLT := gnuplot
-TPST := typst compile
+TPST := typst compile --root .
 ZTHR := zathura
 
 .PHONY: all clean
