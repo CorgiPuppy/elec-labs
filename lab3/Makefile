@@ -10,7 +10,7 @@ CLSP:= clisp
 GNPLT := gnuplot
 ZTHR := zathura
 GRFF := groff
-GRFFFLAGS := -Tpdf
+GRFFFLAGS := -me -Tpdf
 
 .PHONY: all clean
 
