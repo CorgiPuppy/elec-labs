@@ -2,19 +2,22 @@ SRC_DIR := src
 GNUPLOT_DIR := plots/gnuplot_files
 REPORT_DIR := report
 
-RPRT := $(REPORT_DIR)/report.pdf
+RPRT_SRC := $(REPORT_DIR)/report.pdf
+HTML_SRC := $(REPORT_DIR)/report.html
+HAML_SRC := $(wildcard $(REPORT_DIR)/*.haml)
+
 SRC := $(wildcard $(SRC_DIR)/*.lisp)
 GNP := $(wildcard $(GNUPLOT_DIR)/*.p)
 
 CLSP:= clisp
 GNPLT := gnuplot
 ZTHR := zathura
-GRFF := groff
-GRFFFLAGS := -me -Tpdf
+HAML := haml
+WEP := weasyprint
 
 .PHONY: all clean
 
-all: run-src compile-gnp run-report 
+all: run-src compile-gnp run-report clean-html
 
 run-src: $(SRC)
 	@echo "Running main.."
@@ -24,14 +27,22 @@ compile-gnp: $(GNP)
 	@echo "Compile gnuplot files.."
 	@$(GNPLT) $<
 
-run-report: $(RPRT)
+run-report: $(RPRT_SRC)
 	@echo "Running report.."
 	@$(ZTHR) $<	
 
-$(RPRT): $(REPORT_DIR)/*.tr
+$(RPRT_SRC): $(HTML_SRC)
 	@echo "Building pdf.."
-	@$(GRFF) $(GRFFFLAGS) $< > $@
+	@$(WEP) $< $@
+
+$(HTML_SRC): $(HAML_SRC)
+	@echo "Building html.."	
+	@$(HAML) $< > $@
+
+clean-html:
+	@echo "Cleaning html.."
+	@$(RM) $(HTML_SRC)
 
 clean: 
-	@echo "Cleaning up.."
-	@$(RM) $(RPRT)
+	@echo "Cleaning report.."
+	$(RM) $(RPRT_SRC)
