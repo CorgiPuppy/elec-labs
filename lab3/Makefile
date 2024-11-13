@@ -17,7 +17,7 @@ WEP := weasyprint
 
 .PHONY: all clean
 
-all: run-src compile-gnp run-report
+all: run-src compile-gnp run-report clean-html
 
 run-src: $(SRC)
 	@echo "Running main.."
