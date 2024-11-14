@@ -52,7 +52,7 @@
 (fill-array "Q" Q 0 (- LENGTH-1 1) I_total X 0 0)
 (fill-array "cos_phi" cos_phi 0 (- LENGTH-1 1) P S 0 0)
 
-(write-to-file (concatenate 'string FOLDER "U_C.txt") "U" C_p U 0 (- LENGTH-1 1))
+(write-to-file (concatenate 'string FOLDER "I_C_u.txt") "I" C_p I_total 0 (- LENGTH-1 1))
 (write-to-file (concatenate 'string FOLDER "U_R_C.txt") "U_R" C_p U_R 0 (- LENGTH-1 1))
 (write-to-file (concatenate 'string FOLDER "U_L_C.txt") "U_L" C_p U_L 0 (- LENGTH-1 1))
 (write-to-file (concatenate 'string FOLDER "U_C_C.txt") "U_C" C_p U_C 0 (- LENGTH-1 1))
