@@ -19,13 +19,13 @@ WEP := weasyprint
 
 all: run-src compile-gnp run-report clean-html
 
-run-src: $(SRC)
+run-src:
 	@echo "Running main.."
 	@$(foreach file_name, $(SRC), $(CLSP) $(file_name);)
 
-compile-gnp: $(GNP)
+compile-gnp:
 	@echo "Compile gnuplot files.."
-	@$(GNPLT) $<
+	@$(foreach file_name, $(GNP), $(GNPLT) $(file_name);)
 
 run-report: $(RPRT_SRC)
 	@echo "Running report.."
