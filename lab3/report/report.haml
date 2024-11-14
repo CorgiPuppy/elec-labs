@@ -10,6 +10,9 @@
 				text-align: center;
 				vertical-align: middle;
 			}
+			ol{
+				counter-increment: my-awesome-counter;
+			}
 			.image-container{
 				width: 650px;
 				height: auto;
@@ -24,7 +27,7 @@
 			%p{style: 'text-align: center; font-size: 12px'} РЕЗОНАНСЫ В ЦЕПИ СИНУСОИДАЛЬНОГО ТОКА
 			%p{style: 'text-align: center'}
 				%b Задачи
-			%ol{:start => "3"}
+			%ol
 				%li Выбрать параметры цепи и источника в соответствии со своим вариантом. 
 				%li Изменяя ёмкость (C) конденсатора, записать показания приборов (действующие значения), выделив в таблице резонанс напряжений и токов.
 				%li Рассчитать по результатам измерений в цепи с последовательным и параллельным соединением резистора, катушки и конденсатора её параметры.
@@ -35,7 +38,7 @@
 		%section
 			%p{style: 'text-align: center'}
 				%b Ход работы
-			%ol
+			%ul
 				%li Рассчитать цепи (Рис.1 и Рис.2).
 			%figure
 				%img{:src => "../circuit/circuit_I.png", :class => "image-container"}
@@ -44,7 +47,7 @@
 				%img{:src => "../circuit/circuit_U.png", :class => "image-container"}
 				%figcaption Рис. 2: Цепь при резонансе токов
 
-			%ol{:start => "2"}
+			%ul
 				%li Заполнить таблицы ().
 			%p{style: 'text-align: right'} Таблица "Резонанс напряжений"
 			%table{style: 'font-size: 11px;'}
@@ -382,7 +385,7 @@
 					%td -0.0157
 					%td 0.969
 
-			%ol{:start => "3"}
+			%ul
 				%li Построить зависимости 
 
 		%section
