@@ -2,6 +2,23 @@
 %html{:lang => "ru"}
 	%head
 		:css
+			*{
+				box-sizing: border-box;
+			}
+			.hr-line{
+				position: relative;
+				max-width: 500px;
+				text-align: center;
+			}	
+			.hr-line:after{
+				content: "";
+				height: 1px;
+				width: 170px;
+				background: black;
+				display: block;
+				position: absolute;
+				right: 0;
+			}
 			table, th, td{
 				border: 1px solid black; 
 				border-collapse: collapse;
@@ -10,18 +27,43 @@
 				text-align: center;
 				vertical-align: middle;
 			}
-			ol{
-				counter-increment: my-awesome-counter;
-			}
-			.image-container{
+			.circuit-container{
 				width: 650px;
 				height: auto;
 			}
 			figcaption{
 				text-align: center;
 			}
+			.picture-container{
+				width: 100%;
+			}
+			.picture-column{
+				float: left;
+				width: 50%;
+				padding: 5px;
+			}
+			.picture-row::after{
+				content: "";
+				clear: both;
+				display: table;
+			}
 
 	%body
+		%section
+			%br{style: 'line-height: 15;'}
+			%p{style: 'text-align: center; font-size: 24px'}
+				%b ЭЛЕКТРОТЕХНИКА И ЭЛЕКТРОНИКА
+			%p{style: 'text-align: center; font-size: 20px'} Рабочая тетрадь
+			%br{style: 'line-height: 10;'}
+			%p{style: 'font-size: 16px', :class => "hr-line"} Преподаватель:
+			%p{style: 'font-size: 16px', :class => "hr-line"} Факультет:
+			%p{style: 'font-size: 16px', :class => "hr-line"} Студент:
+			%p{style: 'font-size: 16px', :class => "hr-line"} Группа:
+			%p{style: 'font-size: 16px', :class => "hr-line"} Вариант:
+			%p{style: 'font-size: 16px', :class => "hr-line"} Зачёт:
+			%p{style: 'font-size: 16px', :class => "hr-line"} Дата:
+			%br{style: 'line-height: 8;'}
+			%p{style: 'text-align: center; font-size: 16px'} Москва 2024
 		%section
 			%p{style: 'text-align: center'} Лабораторная работа 3
 			%p{style: 'text-align: center; font-size: 12px'} РЕЗОНАНСЫ В ЦЕПИ СИНУСОИДАЛЬНОГО ТОКА
@@ -33,7 +75,7 @@
 				%li Рассчитать по результатам измерений в цепи с последовательным и параллельным соединением резистора, катушки и конденсатора её параметры.
 				%li Построить по результатам измерений и вычислений на одном поле графики I(C), U<sub>R</sub>(C), U<sub>L</sub>(C), U<sub>C</sub>(C), на другом - графики X<sub>C</sub>(C), X<sub>L</sub>(C), S(C), cos&phi;(C).
 				%li Построить в масштабе векторную диаграмму для режима резонанса напряжений.
-				%li Построить по результатам измерений и вычислений графики I(C), I<sub>C</sub>(C), Y(C), cos&phi;.
+				%li Построить по результатам измерений и вычислений графики I(C), I<sub>C</sub>(C), Y(C), cos&phi;(C).
 
 		%section
 			%p{style: 'text-align: center'}
@@ -41,10 +83,10 @@
 			%ul
 				%li Рассчитать цепи (Рис.1 и Рис.2).
 			%figure
-				%img{:src => "../circuit/circuit_I.png", :class => "image-container"}
+				%img{:src => "../circuit/circuit_U.png", :class => "circuit-container"}
 				%figcaption Рис. 1: Цепь при резонансе напряжений	
 			%figure
-				%img{:src => "../circuit/circuit_U.png", :class => "image-container"}
+				%img{:src => "../circuit/circuit_I.png", :class => "circuit-container"}
 				%figcaption Рис. 2: Цепь при резонансе токов
 
 			%ul
@@ -386,7 +428,27 @@
 					%td 0.969
 
 			%ul
-				%li Построить зависимости 
+				%li Построить зависимости 	
+			%p{style: 'text-align: center'} Графики при резонансе напряжений.
+			.picture-row
+				.picture-column
+					%img{:src => "../plots/pictures/I__U_R__U_L__U_C___C.png", :class => "picture-container"}
+				.picture-column
+					%img{:src => "../plots/pictures/X_L__X_C___C.png", :class => "picture-container"}
+			.picture-row
+				.picture-column
+					%img{:src => "../plots/pictures/S_C.png", :class => "picture-container"}
+				.picture-column
+					%img{:src => "../plots/pictures/cosPhi1_C.png", :class => "picture-container"}
+			%p{style: 'text-align: center'} Графики при резонансе токов.
+			%img{:src => "../plots/pictures/I__I_C___C.png", :class => "picture-container"}
+			.picture-row
+				.picture-column
+					%img{:src => "../plots/pictures/Y_C.png", :class => "picture-container"}
+				.picture-column
+					%img{:src => "../plots/pictures/cosPhi2_C.png", :class => "picture-container"}
+
+
 
 		%section
 			%p{style: 'text-align: center'}
