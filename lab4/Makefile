@@ -1,31 +1,17 @@
 SRC_DIR := src
-BIN_DIR := bin
 
-EXE := $(BIN_DIR)/main
-SRC := $(wildcard $(SRC_DIR)/*.f90)
+SRC := $(wildcard $(SRC_DIR)/*.hs)
 
-OSTYPE := $(shell uname)
-GF=gfortran
-LF=lfortran
+GHC := runghc
+GHCFLAGS := -Wall -fforce-recomp
+
+PNDC := pandoc
+ZTHR := zathura
 
 .PHONY: all
 
-all: run clean
+all: run
 
-run: $(EXE)
+run: $(SRC)
 	@echo "Running.."
-	@./$<
-
-$(EXE): $(SRC_DIR)/*.f90 | $(BIN_DIR)
-	@echo "Building.."
-	@if [ $(strip $(OSTYPE)) = Linux ]; then\
-		$(GF) $^ -o $@;\
-	fi
-
-$(BIN_DIR):
-	@echo "Create bin dir.."
-	@mkdir -p $@
-	
-clean:
-	@echo "Cleaning up.."
-	@$(RM) -rf $(BIN_DIR)
+	@$(GHC) $(GHCFLAGS) $<
