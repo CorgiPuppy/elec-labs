@@ -10,7 +10,16 @@
 
 - work = "Ход работы"
 
-- items = [{name: 'Calculator', price: 10, available: true}, {name: 'Note Pad', price: 2.5, available: false}, {name: 'Pen', price: 6, available: true}]
+- head_of_table_asterisk = ["U_A, В", "U_B, В", "U_C, В", "U_nn'", "U_AB, В", "U_BC, В", "U_AC, В", "I_A, А", "I_B, А", "I_C, А", "I_N, А", "P_A, Вт", "P_B, Вт", "P_C, Вт", "P_Ц, Вт"]
+- neutral_sym_asterisk = ["симм.", "220,0", "220,0", "220,0", "-", "381,0", "381,0", "381,1", "3,143", "3,142", "3,143", "0", "691,5", "691,2", "691,5", "2074,2"]
+- neutral_asym_asterisk = ["несим.", "220,0", "220,0", "220,0", "-", "381,0", "381,0", "381,1", "11,000", "3,142", "1,294", "8,926", "2420,0", "691,2", "284,7", "3395,9"]
+- without_neutral_sym_asterisk = ["симм.", "220,0", "220,0", "220,0", "0", "381,0", "381,0", "381,1", "3,143", "3,142", "3,143", "-", "691,5", "691,2", "691,5", "2074,2"]
+- without_neutral_asym_asterisk = ["несим.", "104,2", "286,7", "307,8", "118,2", "381,0", "381,0", "381,1", "5,198", "4,095", "2,557", "-", "540,6", "1174,0", "784,5", "2499,1"]
+
+- head_of_table_triangle = ["U_ab, В", "U_bc, В", "U_ca, В", "I_ab, А", "I_bc, А", "I_ca, А", "I_A, А", "I_B, А", "I_C, А", "P_ab, Вт", "P_bc, Вт", "P_ca, Вт", "P_3ф, Вт", "U_л/U_ф"]
+- sym_triangle = ["381,0", "381,0", "381,1", "5,442", "5,443", "5,444", "9,428", "9,426", "9,429", "2073,1", "2073,8", "2074,7", "6221,5", "1"]
+- asym_phase_breakage_triangle = ["обрыв фазы", "381,0", "381,0", "381,1", "-", "5,443", "3,176", "3,176", "5,443", "7,550", "-", "2073,8", "1210,4", "3284,3", "1"]
+- asym_line_breakage_triangle = ["обрыв линии", "54,45", "381,0", "326,6", "2,722", "5,443", "2,722", "0", "8,165", "8,165", "148,2", "2073,8", "889,1", "3111,1", "1"]
 
 doctype html
 html
@@ -38,12 +47,69 @@ html
 			ol
 				- task_items.each do |item|
 					li= item
+
 		section
 			p (style="text-align: center")
 				b= work
 			ul
 				li Рассчитать цепи (Рис.1 и Рис.2).
-
+			figure
+				img (src="../circuit/asterisk/asterisk.png", class="circuit-container")
+				figcaption Рис.1: Цепь при схеме "звезда-звезда"
+			figure
+				img (src="../circuit/triangle/triangle.png", class="circuit-container")
+				figcaption Рис.2: Цепь при схеме "звезда-треугольник"
+			ul
+				li Заполнить таблицы.
+			p (style="text-align: right") Таблица "Соединение "звездой""
+			table (style="font-size: 11px")
+				thead
+					tr
+						th (rowspan="2", colspan="2") Режим цепи
+						th (colspan="11") Измерить
+						th (colspan="4") Рассчитать
+					tr
+						- head_of_table_asterisk.each do |item|
+							th= item		
+				tbody
+					tr
+						td (rowspan="2") с нейтр. пр.
+						- neutral_sym_asterisk.each do |item|
+							td= item
+					tr
+						- neutral_asym_asterisk.each do |item|
+							td= item
+					tr
+						td (rowspan="2") без нейтр. пр.
+						- without_neutral_sym_asterisk.each do |item|
+							td= item
+					tr
+						- without_neutral_asym_asterisk.each do |item|
+							td= item
+			p (style="text-align: right") Таблица "Соединение "треугольником""
+			table (style="font-size: 11px")
+				thead
+					tr
+						th (rowspan="2", colspan="2") Режим цепи
+						th (colspan="9") Измерить
+						th (colspan="5") Рассчитать
+					tr
+						- head_of_table_triangle.each do |item|
+							th= item		
+				tbody
+					tr
+						td (colspan="2") Симм.
+						- sym_triangle.each do |item|
+							td= item
+					tr
+						td (rowspan="2") Несим.
+						- asym_phase_breakage_triangle.each do |item|
+							td= item
+					tr
+						- asym_line_breakage_triangle.each do |item|
+							td= item
+			ul
+				li Построить зависимости
 			p (style="text-align: center") Векторные диаграммы
 			picture-row
 				picture-column
@@ -53,25 +119,17 @@ html
 			picture-row
 				picture-column
 					img (src="../plots/pictures/asterisk_without_neutral_sym.png", class="picture-container")
+				picture-column
 					img (src="../plots/pictures/asterisk_without_neutral_asym.png", class="picture-container")
+			picture-row
+				picture-column
+					img (src="../plots/pictures/triangle_sym.png")
 
 		section
-			table
-				thead
-					tr
-					th Item Name
-					th Item Price
-					th Availability
-				tbody
-					- items.each do |item|
-						tr
-							td= item[:name]
-							td= item[:price]
-							- if item[:available]
-								td In Stock
-							- else
-								td.alert Out of Stock
-
+			p (style="text-align: center")
+				b Выводы.
+			p (style="text-indent: 50px") 
+	
 css:
 	* {
 		box-sizing: border-box;
