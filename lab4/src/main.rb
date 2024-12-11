@@ -25,10 +25,6 @@ def calc_P(u, i)
 	return u * i
 end
 
-def write_to_file(path)
-	
-end
-
 length = U_A.length
 p_A = Array.new(length, 0)
 p_B = Array.new(length, 0)
@@ -43,5 +39,3 @@ p_A.each_with_index do |element, index|
 	p_Circuit[index] = p_A[index] + p_B[index] + p_C[index]
 	printf "%.1f\t%.1f\t%.1f\t%.1f\n", p_A[index], p_B[index], p_C[index], p_Circuit[index]
 end
-
-# file = File.open(Folder + "I
