@@ -19,8 +19,6 @@ I_B = [3.142, 3.142, 3.142, 4.095]
 I_C = [3.143, 1.294, 3.143, 2.557]
 I_N = [0, 8.926]
 
-Folder = "plots/files/"
-
 def calc_P(u, i)
 	return u * i
 end
@@ -31,6 +29,7 @@ p_B = Array.new(length, 0)
 p_C = Array.new(length, 0)
 p_Circuit = Array.new(length, 0)
 
+puts "\nAsterisk:"
 print "P_A\tP_B\tP_C\tP_Circuit\n"
 p_A.each_with_index do |element, index|
 	p_A[index] = calc_P(U_A[index], I_A[index])
