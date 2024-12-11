@@ -20,9 +20,9 @@ GNPLT := gnuplot
 
 all: run-src compile-gnp run-report clean-html
 
-run-src: $(SRC)
+run-src:
 	@echo "Running.."
-	@$(RB) $<
+	@$(foreach file_name, $(SRC), $(RB) $(file_name);)
 
 compile-gnp:
 	@echo "Compile gnuplot files.."
