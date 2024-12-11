@@ -5,7 +5,9 @@ RPRT_SRC := $(REPORT_DIR)/report.pdf
 HTML_SRC := $(REPORT_DIR)/report.html
 SLIM_SRC := $(wildcard $(REPORT_DIR)/*.slim)
 
-SRC := $(wildcard $(SRC_DIR)/*.hs)
+SRC := $(wildcard $(SRC_DIR)/*.rb)
+
+RB := ruby
 
 SRB := slimrb
 SRBFLAGS := -p
@@ -14,11 +16,11 @@ ZTHR := zathura
 
 .PHONY: all
 
-all: run-report clean-html
+all: run run-report clean-html
 
 run: $(SRC)
 	@echo "Running.."
-	@$(GHC) $(GHCFLAGS) $<
+	@$(RB) $<
 
 run-report: $(RPRT_SRC)
 	@echo "Running a report.."
