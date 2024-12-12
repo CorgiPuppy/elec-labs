@@ -3,11 +3,226 @@
 <html>
 	<head>
 		<title>My lab</title>
+		<style>
+			* { box-sizing: border-box; }
+			.hr-line {
+				position: relative;
+				max-width: 500px;
+				text-align: center;
+			}	
+			.hr-line:after {
+				content: "";
+				height: 1px;
+				width: 170px;
+				background: black;
+				display: block;
+				position: absolute;
+				right: 0;
+			}
+			table, th, td {
+				border: 1px solid black; 
+				border-collapse: collapse;
+			}
+			th, td {
+				text-align: center;
+				vertical-align: middle;
+			}
+			.circuit-container {
+				width: 650px;
+				height: auto;
+			}
+			figcaption { text-align: center; }
+			.picture-container { width: 75%; }
+		</style>
 	<head>
 	<body>
 		<section>
 			<br style="line-height: 15;">
 			<p style="text-align: center; font-size: 24px"><b>ЭЛЕКТРОТЕХНИКА И ЭЛЕКТРОНИКА</b></p>
+			<p style="text-align: center; font-size: 20px">Рабочая тетрадь</p>
+			<br style="line-height: 10;">
+			<p style="font-size: 16px", class="hr-line">Преподаватель:</p>
+			<p style="font-size: 16px", class="hr-line">Факультет:</p>
+			<p style="font-size: 16px", class="hr-line">Студент:</p>
+			<p style="font-size: 16px", class="hr-line">Группа:</p>
+			<p style="font-size: 16px", class="hr-line">Вариант:</p>
+			<p style="font-size: 16px", class="hr-line">Зачёт:</p>
+			<p style="font-size: 16px", class="hr-line">Дата:</p>
+			<br style="line-height: 9;">
+			<p style="text-align: center; font-size: 16px">Москва 2024</p>
+		</section>
+
+		<section>
+			<p style="text-align: center">Лабораторная работа 5</p>
+			<p style="text-align: center; font-size: 12px">ОДНОФАЗНЫЙ ТРАНСФОРМАТОР</p>
+			<p style="text-align: center"><b>Цель работы</b></p>
+			<p style="text-indent: 50px">Изучить устройство, принцип действия, режимы работы и снять характеристики однофазного трансформатора.</p>
+		</section>
+		
+		<section>
+			<p style="text-align: center"><b>Ход работы</b></p>
+			<ul>
+				<li> Рассчитать цепи (Рис.1, Рис.2 и Рис.3).</li>
+			</ul>
+			<figure>
+				<img src="../circuit/idle_mode/idle_mode.png", class="circuit-container">
+				<figcaption> Рис. 1: Цепь при режиме холостого хода
+			</figure>
+			<figure>
+				<img src="../circuit/short_circuit_mode/short_circuit_mode.png", class="circuit-container">
+				<figcaption> Рис. 2: Цепь при режиме коротного замыкания
+			</figure>
+			<figure>
+				<img src="../circuit/operating_mode/operating_mode.png", class="circuit-container">
+				<figcaption> Рис. 3: Цепь при рабочем режиме
+			</figure>
+			<ul start="2">
+				<li> Заполнить таблицы.</li>
+			</ul>
+			<p style="text-align: right">Таблица "Режим холостого хода"</p>
+			<table style="font-size: 20px;">
+				<tr>
+					<th colspan="4">Измерить</th>
+					<th colspan="5">Вычислить</th>
+				</tr>
+				<tr>
+					<th>U<sub>1Н</sub>, В</th>
+					<th>U<sub>2Н</sub>, В</th>
+					<th>I<sub>1Х</sub>, А</th>
+					<th>P<sub>Х</sub>, Вт</th>
+					<th>n</th>
+					<th>&omega;<sub>1</sub>, витк.</th>
+					<th>&omega;<sub>2</sub>, витк.</th>
+					<th>&Delta;P<sub>М</sub>, Вт</th>
+					<th>cos&phi;<sub>Х</sub></th>
+				</tr>
+				<tr>
+					<td>220</td>
+					<td>45,67</td>
+					<td>0,027</td>
+					<td>0,902</td>
+					<td>4,82</td>
+					<td>1622</td>
+					<td>338</td>
+					<td>0,902</td>
+					<td>0,152</td>
+				</tr>
+			</table>
+			<p style="text-align: right">Таблица "Режим короткого замыкания"</p>	
+			<table style="font-size: 20px">
+				<tr>
+					<th colspan="4">Измерить</th>
+					<th colspan="5">Вычислить</th>
+				</tr>
+				<tr>
+					<th>U<sub>1К</sub>, В</th>
+					<th>I<sub>1К</sub>, В</th>
+					<th>I<sub>2К</sub>, А</th>
+					<th>P<sub>К</sub>, Вт</th>
+					<th>Z<sub>К</sub>, Ом</th>
+					<th>R<sub>К</sub>, Ом</th>
+					<th>X<sub>К</sub>, Ом</th>
+					<th>&Delta;P<sub>О</sub>, Вт</th>
+					<th>cos&phi;<sub>К</sub></th>
+				</tr>
+				<tr>
+					<td>220</td>
+					<td>1,356</td>
+					<td>6,478</td>
+					<td>242,5</td>
+					<td>162,24</td>
+					<td>131,88</td>
+					<td>94,49</td>
+					<td>242,5</td>
+					<td>0,813</td>
+				</tr>
+			</table>
+			<p style="text-align: right">Таблица "Рабочий режим"</p>
+			<table style="font-size: 23px">
+				<tr>
+					<th rowspan="2">R, Ом</th>
+					<th colspan="5">Измерить</th>
+					<th colspan="3">Вычислить</th>
+				</tr>
+				<tr>
+					<th>U<sub>1</sub>, В</th>
+					<th>I<sub>1</sub>, А</th>
+					<th>P<sub>1</sub>, Вт</th>
+					<th>U<sub>2</sub>, В</th>
+					<th>I<sub>2</sub>, А</th>
+					<th>P<sub>2</sub>, Вт</th>
+					<th>cos&phi;</th>
+					<th>&eta;, %</th>
+				</tr>
+				<tr>
+					<td>80</td>
+					<td>220</td>
+					<td>0,114</td>
+					<td>24,55</td>
+					<td>42,66</td>
+					<td>0,533</td>
+					<td>22,73</td>
+					<td>0,979</td>
+					<td>93</td>
+				</tr>
+				<tr>
+					<td>110</td>
+					<td>220</td>
+					<td>0,084</td>
+					<td>18,26</td>
+					<td>43,48</td>
+					<td>0,395</td>
+					<td>17,16</td>
+					<td>0,988</td>
+					<td>94</td>
+				</tr>
+				<tr>
+					<td>130</td>
+					<td>220</td>
+					<td>0,071</td>
+					<td>15,60</td>
+					<td>43,82</td>
+					<td>0,337</td>
+					<td>14,76</td>
+					<td>0,999</td>
+					<td>95</td>
+				</tr>
+				<tr>
+					<td>219</td>
+					<td>220</td>
+					<td>0,047</td>
+					<td>10,05</td>
+					<td>44,51</td>
+					<td>0,212</td>
+					<td>9,44</td>
+					<td>0,972</td>
+					<td>94</td>
+				</tr>
+				<tr>
+					<td>300</td>
+					<td>220</td>
+					<td>0,044</td>
+					<td>7,81</td>
+					<td>44,75</td>
+					<td>0,149</td>
+					<td>6,66</td>
+					<td>0,807</td>
+					<td>85</td>
+				</tr>
+			</table>
+
+			<ul>
+				<li>Построить зависимости</li>
+			</ul>
+			<img src="../plots/pictures/U_2__I_2.png", class="picture-container">	
+			<img src="../plots/pictures/P_2__I_2.png", class="picture-container">	
+			<img src="../plots/pictures/cosPhi__I_2.png", class="picture-container">	
+			<img src="../plots/pictures/n__I_2.png", class="picture-container">	
+		</section>
+
+		<section>
+			<p style="text-align: center;"><b>Выводы</b></p>
+			<p style="text-indent: 50px;"></p>
 		</section>
 	</body>
 </html>
