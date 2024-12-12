@@ -1,17 +1,39 @@
 SRC_DIR := src
+GNUPLOT_DIR := plots/gnuplot_files
+REPORT_DIR := report
 
-SRC := $(wildcard $(SRC_DIR)/*.hs)
+RPRT_SRC := $(REPORT_DIR)/report.pdf
+HTML_SRC := $(REPORT_DIR)/report.html
 
-GHC := runghc
-GHCFLAGS := -Wall -fforce-recomp
+SRC := $(wildcard $(SRC_DIR)/*.go)
+GNP := $(wildcard $(GNUPLOT_DIR)/*.p)
 
-PNDC := pandoc
+GO := go run
+
+WEP := weasyprint
 ZTHR := zathura
+GNPLT := gnuplot
 
-.PHONY: all
+.PHONY: all clean
 
-all: run
+all: run-src compile-gnp run-report
 
-run: $(SRC)
+run-src: $(SRC)
 	@echo "Running.."
-	@$(GHC) $(GHCFLAGS) $<
+	@$(GO) $<
+
+compile-gnp:
+	@echo "Compile gnuplot files.."
+	@$(foreach file_name, $(GNP), $(GNPLT) $(file_name);)
+
+run-report: $(RPRT_SRC)
+	@echo "Running a report.."
+	@$(ZTHR) $<
+
+$(RPRT_SRC): $(HTML_SRC)
+	@echo "Building pdf.."
+	@$(WEP) $< $@
+
+clean:
+	@echo "Cleaning a report.."
+	$(RM) $(RPRT_SRC)
