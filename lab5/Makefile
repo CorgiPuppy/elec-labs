@@ -14,9 +14,9 @@ WEP := weasyprint
 ZTHR := zathura
 GNPLT := gnuplot
 
-.PHONY: all clean
+.PHONY: all
 
-all: run-src compile-gnp run-report
+all: clean run-src compile-gnp run-report
 
 run-src: $(SRC)
 	@echo "Running.."
