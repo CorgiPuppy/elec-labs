@@ -1,0 +1,85 @@
+- title = "ЭЛЕКТРОТЕХНИКА И ЭЛЕКТРОНИКА"
+- sub_title = "Рабочая тетрадь"
+- signs = ["Преподаватель", "Студент", "Группа", "Вариант", "Зачёт", "Дата"]
+- title_footer = "Москва 2024"
+
+- lab_number = "Лабораторная работа 4"
+- lab_name = "ТРЁХФАЗНЫЕ ЦЕПИ"
+- tasks = "Задачи"
+- task_items = ["Изучить схемы соединения трехфазных цепей.", "Экспериментально определить соотношения между фазными и линейными напряжениями и токами.", "Построить векторные диаграммы напряжений и токов для симметричных режимов."]
+
+- work = "Ход работы"
+
+doctype html
+html
+	head
+		title My Lab
+	body
+		section
+			- 14.times
+				br
+			p (style="text-align: center; font-size: 24px")
+				b= title
+			p (style="text-align: center; font-size: 20px")= sub_title
+			- 9.times
+				br
+			- signs.each do |item|
+				p(style="font-size: 16px", class="hr-line")= item
+			- 8.times
+				br
+			p (style="text-align: center; font-size: 16px")= title_footer
+		section
+			p (style="text-align: center")
+				b= work
+			ul
+				li Рассчитать цепь (Рис.1).
+			figure
+				img (src="../circuit/dc_motor.png", class="circuit-container")
+				figcaption Рис.1: Цепь при двигателе постоянного тока.
+			ul
+				li Заполнить таблицу.
+			ul
+				li Построить зависимости
+			img (src="../plots/pictures/n__t.png", class="picture-container")
+			img (src="../plots/pictures/n__R.png", class="picture-container")
+			img (src="../plots/pictures/n__M.png", class="picture-container")
+		section
+			p (style="text-align: center")
+				b Выводы.
+
+css:
+	* {
+		box-sizing: border-box;
+	}
+	.hr-line {
+		position: relative;
+		max-width: 500px;
+		text-align: center;
+	}
+	.hr-line:after {
+		content: "";
+		height: 1px;
+		width: 170px;
+		background: black;
+		display: block;
+		position: absolute;
+		right: 0;
+	}
+	table, th, td {
+		border: 1px solid black;
+		border-collapse: collapse;
+	}
+	th, td {
+		text-align: center;
+		vertical-align: middle;
+	}
+	.circuit-container {
+		width: 650px;
+		height: auto;
+	}
+	figcaption {
+		text-align: center;
+	}
+	.picture-container {
+		width: 75%;
+	}
