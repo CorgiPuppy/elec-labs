@@ -111,8 +111,8 @@ func main() {
 		fmt.Printf("%.0f\t%.0f\t%.3f\t%.2f\t%.2f\t%.3f\t%.2f\t%.3f\t%.0f\n", R[i], U_1, I_1[i], P_1[i], U_2[i], I_2[i], P_2[i], cosPhi[i], cpa[i])
 	}
 
-	write_to_file("U_2__I_2.txt", U_2, I_2);
-	write_to_file("P_2__I_2.txt", P_2, I_2);
-	write_to_file("cosPhi__I_2.txt", cosPhi, I_2);
-	write_to_file("n__I_2.txt", cpa, I_2);
+	write_to_file("U_2__I_2.txt", I_2, U_2);
+	write_to_file("P_2__I_2.txt", I_2, P_2);
+	write_to_file("cosPhi__I_2.txt", I_2, cosPhi);
+	write_to_file("n__I_2.txt", I_2, cpa);
 }
