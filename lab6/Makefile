@@ -6,10 +6,10 @@ RPRT_SRC := $(REPORT_DIR)/report.pdf
 HTML_SRC := $(REPORT_DIR)/report.html
 SLIM_SRC := $(wildcard $(REPORT_DIR)/*.slim)
 
-SRC := $(wildcard $(SRC_DIR)/*.rb)
+SRC := $(wildcard $(SRC_DIR)/*.js)
 GNP := $(wildcard $(GNUPLOT_DIR)/*.p)
 
-RB := ruby
+ND := node
 SRB := slimrb
 SRBFLAGS := -p
 WEP := weasyprint
@@ -22,7 +22,7 @@ all: run-src compile-gnp run-report clean-html
 
 run-src:
 	@echo "Running.."
-	@$(foreach file_name, $(SRC), $(RB) $(file_name);)
+	@$(foreach file_name, $(SRC), $(ND) $(file_name);)
 
 compile-gnp:
 	@echo "Compile gnuplot files.."
