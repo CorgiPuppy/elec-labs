@@ -70,6 +70,7 @@ write_to_file(folder + 'n_7__R.txt', R, transposed_n[6]);
 M = [];
 for (let i = 0; i < I.length; i++) {
 	M[i] = Math.pow(I[i], 2);
+	console.log(M[i]);
 }
 
 write_to_file(folder + 'n_1__M.txt', M, transposed_n[0]);
@@ -79,5 +80,3 @@ write_to_file(folder + 'n_4__M.txt', M, transposed_n[3]);
 write_to_file(folder + 'n_5__M.txt', M, transposed_n[4]);
 write_to_file(folder + 'n_6__M.txt', M, transposed_n[5]);
 write_to_file(folder + 'n_7__M.txt', M, transposed_n[6]);
-
-
