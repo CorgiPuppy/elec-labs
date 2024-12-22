@@ -3,12 +3,32 @@
 - signs = ["Преподаватель", "Студент", "Группа", "Вариант", "Зачёт", "Дата"]
 - title_footer = "Москва 2024"
 
-- lab_number = "Лабораторная работа 4"
-- lab_name = "ТРЁХФАЗНЫЕ ЦЕПИ"
+- lab_number = "Лабораторная работа 6"
+- lab_name = "ДВИГАТЕЛЬ ПОСТОЯННОГО ТОКА"
 - tasks = "Задачи"
-- task_items = ["Изучить схемы соединения трехфазных цепей.", "Экспериментально определить соотношения между фазными и линейными напряжениями и токами.", "Построить векторные диаграммы напряжений и токов для симметричных режимов."]
+- task_items = ["Изучить устройство, принцип действия, схемы возбуждения и режимы работы двигателя постоянного тока.", "Выбрать параметры двигателя постоянного тока параллельного возбуждения и снять его характеристики.", "Записать выводы по результатам."]
 
 - work = "Ход работы"
+
+- head_of_table = ["R_я, Ом", "t, с", "n_я, об/мин", "I_я, А", "М, Н*м", "R_я, Ом", "t, с", "n_я, об/мин", "I_я, А", "М, Н*м", "R_я, Ом", "t, с", "n_я, об/мин", "I_я, А", "М, Н*м"]
+- first_row_of_table = ["0", "0", "0", "0", "0", "2", "0", "0", "0", "0", "4", "0", "0", "0", "0"] 
+- second_row_of_table = ["0", "0,1", "1166", "8,954", "80,17", "2", "0,2", "982", "7,535", "56,78", "4", "0,3", "968", "6,322", "39,97"] 
+- third_row_of_table = ["0", "0,2", "1992", "8,954", "80,17", "2", "0,4", "1526", "7,535", "56,78", "4", "0,6", "1380", "6,322", "39,97"]
+- forth_row_of_table = ["0", "0,3", "2227", "8,954", "80,17", "2", "0,6", "1787", "7,535", "56,78", "4", "0,9", "1568", "6,322", "39,97"] 
+- fifth_row_of_table = ["0", "0,4", "2361", "8,954", "80,17", "2", "0,8", "1912", "7,535", "56,78", "4", "1,2", "1653", "6,322", "39,97"]
+- sixth_row_of_table = ["0", "0,5", "2417", "8,954", "80,17", "2", "1,0", "1974", "7,535", "56,78", "4", "1,5", "1691", "6,322", "39,97"] 
+- seventh_row_of_table = ["0", "0,6", "2441", "8,954", "80,17", "2", "1,2", "2000", "7,535", "56,78", "4", "1,8", "1710", "6,322", "39,97"] 
+- eighth_row_of_table = ["0", "0,7", "2451", "8,954", "80,17", "2", "1,4", "2015", "7,535", "56,78", "4", "2,1", "1718", "6,322", "39,97"] 
+
+- head_of_continuing_table = ["R_я, Ом", "t, с", "n_я, об/мин", "I_я, А", "М, Н*м", "R_я, Ом", "t, с", "n_я, об/мин", "I_я, А", "М, Н*м", "R_я, Ом", "t, с", "n_я, об/мин", "I_я, А", "М, Н*м"] 
+- first_row_of_continuing_table = ["6", "0", "0", "0", "0", "8", "0", "0", "0", "0", "10", "0", "0", "0", "0"] 
+- second_row_of_continuing_table = ["6", "0,35", "821", "5,508", "30,34", "8", "0,4", "699", "4,829", "23,32", "10", "0,5", "710", "4,437", "19,69"] 
+- third_row_of_continuing_table = ["6", "0,7", "1183", "5,505", "30,34", "8", "0,8", "1035", "4,829", "23,32", "10", "1,0", "994", "4,437", "19,69"] 
+- forth_row_of_continuing_table = ["6", "1,05", "1352", "5,508", "30,34", "8", "1,2", "1192", "4,829", "23,32", "10", "1,5", "1107", "4,437", "19,69"] 
+- fifth_row_of_continuing_table = ["6", "1,4", "1432", "5,508", "30,34", "8", "1,6", "1265", "4,829", "23,32", "10", "2,0", "1156", "4,437", "19,69"] 
+- sixth_row_of_continuing_table = ["6", "1,75", "1469", "5,508", "30,34", "8", "2,0", "1299", "4,829", "23,32", "10", "2,5", "1177", "4,437", "19,69"] 
+- seventh_row_of_continuing_table = ["6", "2,1", "1486", "5,508", "30,34", "8", "2,4", "1314", "4,829", "23,32", "10", "3,0", "1185", "4,437", "19,69"] 
+- eighth_row_of_continuing_table = ["6", "2,45", "1493", "5,508", "30,34", "8", "2,8", "1322", "4,829", "23,32", "10", "3,5", "1189", "4,437", "19,69"] 
 
 doctype html
 html
@@ -28,6 +48,16 @@ html
 			- 8.times
 				br
 			p (style="text-align: center; font-size: 16px")= title_footer
+
+		section
+			p (style="text-align: center")= lab_number
+			p (style="text-align: center; font-size: 12px")= lab_name
+			p (style="text-align: center")
+				b= tasks
+			ol
+				- task_items.each do |item|
+					li= item
+
 		section
 			p (style="text-align: center")
 				b= work
@@ -38,6 +68,66 @@ html
 				figcaption Рис.1: Цепь при двигателе постоянного тока.
 			ul
 				li Заполнить таблицу.
+			p (style="text-align: right") Таблица "Двигатель постоянного тока"
+			table (style="font-size: 16px;")
+				thead
+					tr
+						- head_of_table.each do |item|
+							th= item
+					tr
+						- first_row_of_table.each do |item|
+							td= item
+					tr
+						- second_row_of_table.each do |item|
+							td= item
+					tr
+						- third_row_of_table.each do |item|
+							td= item
+					tr
+						- forth_row_of_table.each do |item|
+							td= item
+					tr
+						- fifth_row_of_table.each do |item|
+							td= item
+					tr
+						- sixth_row_of_table.each do |item|
+							td= item
+					tr
+						- seventh_row_of_table.each do |item|
+							td= item
+					tr
+						- eighth_row_of_table.each do |item|
+							td= item
+			p Продолжение таблицы..
+			table (style="font-size: 16px;")
+				thead
+					tr
+						- head_of_continuing_table.each do |item|
+							th= item
+					tr
+						- first_row_of_continuing_table.each do |item|
+							td= item
+					tr
+						- second_row_of_continuing_table.each do |item|
+							td= item
+					tr
+						- third_row_of_continuing_table.each do |item|
+							td= item
+					tr
+						- forth_row_of_continuing_table.each do |item|
+							td= item
+					tr
+						- fifth_row_of_continuing_table.each do |item|
+							td= item
+					tr
+						- sixth_row_of_continuing_table.each do |item|
+							td= item
+					tr
+						- seventh_row_of_continuing_table.each do |item|
+							td= item
+					tr
+						- eighth_row_of_continuing_table.each do |item|
+							td= item
 			ul
 				li Построить зависимости
 			img (src="../plots/pictures/n__t.png", class="picture-container")
