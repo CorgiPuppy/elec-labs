@@ -1,2 +1,3 @@
-# Calculations for laboratory work in electronics
+# Лабораторные работы по курсу "Электротехника и промышленная элетроника"
+## 3 курс
 
